@@ -29,7 +29,7 @@ public class BallSpawner : MonoBehaviour
         if(spawnType == SpawnType.Burst)
              BurstSpawn();
 
-        Debug.Log(balls.Length);
+        //Debug.Log(balls.Length);
     }
 
     // Update is called once per frame

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class BlastController : MonoBehaviour
 {
+    public float forceMultiplier = 100f;
+
+    [SerializeField]
+    private List<GameObject> AffectedObjects;
+
+    [SerializeField]
+    private Vector3 ForceVector;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,34 +21,44 @@ public class BlastController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(AffectedObjects.Count);
+        if (Input.GetMouseButtonDown(0))
+            PushObjects();
     }
 
-    public List<GameObject> AffectedObjects;
-    public Vector3 ForceVector;
+    void FixedUpdate()
+    {
+       
+    }
+
+    private void PushObjects()
+    {
+        Debug.Log(AffectedObjects.Count);
+        for (int i = 0; i < AffectedObjects.Count; i++)
+        {
+            Debug.Log("Pushed: " + i);
+            ForceVector = transform.up;
+            AffectedObjects[i].GetComponent<Rigidbody2D>().AddForce(ForceVector * forceMultiplier);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log("Enter: " + collision.tag);
+        if (collision.tag != "Ball")
+            return;
+
         AffectedObjects.Add(collision.gameObject);
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        //Debug.Log("Exit: " + collision.tag);
+        if (collision.tag != "Ball")
+            return;
+
         AffectedObjects.Remove(collision.gameObject);
     }
 
-    void FixedUpdate()
-    {
-        Debug.Log(AffectedObjects.Count);
-        if (Input.GetMouseButton(0))
-            PushObjects();  
-    }
 
-    private void PushObjects()
-    {
-        for (int I = 0; I < AffectedObjects.Count; I++)
-        {
-            AffectedObjects[I].GetComponent<Rigidbody2D>().AddForce(ForceVector);
-        }
-    }
 }
