@@ -148,4 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671bb49145d191f48bd5bbb5abcbc0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameColor: Red
+  ballColor: Red
+  gameManager: {fileID: 0}

@@ -7,7 +7,7 @@ public class BlastController : MonoBehaviour
     public float forceMultiplier = 100f;
 
     [SerializeField]
-    private List<GameObject> AffectedObjects;
+    private List<GameObject> AffectedObjects = new List<GameObject>();
 
     [SerializeField]
     private Vector3 ForceVector;
