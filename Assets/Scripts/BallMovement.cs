@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    private float thrust = 4f;
+    public float thrust = 3f;
     
     //TODO:
-    //Create an automatic velocity kick if still for more than 10 seconds? 
+    //Clamp Velocity?
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,5 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

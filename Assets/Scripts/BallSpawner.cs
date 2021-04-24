@@ -33,7 +33,10 @@ public class BallSpawner : MonoBehaviour
 
     public void SpawnBall()
     {
-        ball = balls[Random.Range(0, balls.Length-1)];
+        int rand = Random.Range(0, balls.Length);
+        //Debug.Log(rand + " " + balls[rand]);
+        ball = balls[rand];
+
         Instantiate(ball, transform.position, Quaternion.identity);
     }
 

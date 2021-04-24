@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 2995082285891361208}
   - component: {fileID: 2995082285891361209}
   m_Layer: 0
-  m_Name: Ball 1
-  m_TagString: Untagged
+  m_Name: Ball Green
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2995082285891361203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7245abb415242104f934d8359a57592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 3
 --- !u!114 &2995082285891361209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,4 +148,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671bb49145d191f48bd5bbb5abcbc0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 1}
+  nameColor: Green
