@@ -20,13 +20,13 @@ public class GoalController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
+        //Debug.Log(collision.tag);
         if (collision.tag == "Ball")
         {
             if (collision.GetComponent<BallStats>().nameColor == this.color)
             {
                 Destroy(collision.gameObject);
-                Debug.Log(color);
+                //Debug.Log(color);
             }
         }
     }
