@@ -33,7 +33,7 @@ public class GoalController : MonoBehaviour
             {
                 //Debug.Log("Hit");
                 //Debug.Log(collision.gameObject);
-                gameManager.RemoveBall(collision.gameObject);
+                gameManager.RemoveActiveBall(collision.gameObject);
                 Destroy(collision.gameObject);
             }
         }

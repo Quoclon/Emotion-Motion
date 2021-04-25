@@ -8,6 +8,8 @@ public enum SpawnType
 
 public class BallSpawner : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public GameObject[] spawnableBalls;
     private GameObject ballToSpawn;
 
@@ -35,6 +37,8 @@ public class BallSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //gameManager = GameObject.FindGameObjectsWithTag("GameManager")[0].GetComponent<GameManager>();
+
         if (spawnType == SpawnType.Single)
             SpawnBall();
 
@@ -89,14 +93,10 @@ public class BallSpawner : MonoBehaviour
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         fireAngle = spawnPoint.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
-        //Debug.Log(Quaternion.Euler(0f, 0f, lookAngle - 90f));
-
         //Fire Toward Centre of Circle
         GameObject newBall = Instantiate(ballToSpawn, spawnPosition, fireAngle);
         newBall.GetComponent<BallMovement>().AddForce(ballForce);
         newBall.GetComponent<BallMovement>().ClampVelocity(ballMagnitudeMax);
-
-
     }
 
     void CreateBallHopper()
@@ -104,7 +104,10 @@ public class BallSpawner : MonoBehaviour
         for (int i = 0; i < ballsThisLevel; i++)
         {
             AddBall();
+            //gameManager.AddBallToTotal(ballHopper[i]);
         }
+
+        gameManager.CreateTotalBallList(ballHopper);
     }
 
     void AddBall()
@@ -113,6 +116,7 @@ public class BallSpawner : MonoBehaviour
         int rand = Random.Range(0, spawnableBalls.Length);
         ballToSpawn = spawnableBalls[rand];
         ballHopper.Add(ballToSpawn);
+        //gameManager.AddBallToTotal(ballToSpawn);
     }
 
     void CheckNextBalls()

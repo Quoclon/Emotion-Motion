@@ -33,6 +33,7 @@ public class BlastController : MonoBehaviour
     void Update()
     {
         //Debug.Log(AffectedObjects.Count);
+        
         if (Input.GetMouseButtonDown(0))
         {
             ChangeColor();

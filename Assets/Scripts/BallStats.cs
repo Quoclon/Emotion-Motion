@@ -6,6 +6,7 @@ public class BallStats : MonoBehaviour
 {
     [SerializeField]
     public string ballColor;
+    public int ballNumber;
 
     //TODO: Fix  this to use Singleton
     public GameManager gameManager;
@@ -14,7 +15,7 @@ public class BallStats : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.FindGameObjectsWithTag("GameManager")[0].GetComponent<GameManager>();
-        gameManager.AddBall(this.gameObject);
+        gameManager.AddActiveBall(this.gameObject);
     }
 
     // Update is called once per frame
