@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    public float thrust = 3f;
-    
-    //TODO:
-    //Clamp Velocity?
+    Rigidbody2D rb;
+
+    [SerializeField]
+    private float maxVelocity = 4f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //GetComponent<Rigidbody2D>().AddForce(transform.up * thrust, ForceMode2D.Impulse);
-        GetComponent<Rigidbody2D>().velocity = Random.onUnitSphere * thrust;
+        rb = GetComponent<Rigidbody2D>();
+        //Random 360 Direction
+        //GetComponent<Rigidbody2D>().velocity = Random.onUnitSphere * thrust;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        //Debug.Log("Pre-Clamp: " + rb.velocity.magnitude);
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity);
+        //Debug.Log("Post-Clamp: " + rb.velocity.magnitude);
     }
+
+    public void AddForce(float forceAmount)
+    {
+        GetComponent<Rigidbody2D>().AddForce(transform.up * forceAmount, ForceMode2D.Impulse);
+    }
+
+    public void ClampVelocity(float magnitude)
+    {
+        maxVelocity = magnitude;
+    }
+
+
 }

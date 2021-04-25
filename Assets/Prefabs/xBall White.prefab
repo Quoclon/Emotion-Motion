@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3596839478278455273}
   - component: {fileID: 3596839478278455272}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: xBall White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -708788397
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7245abb415242104f934d8359a57592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 3
 --- !u!114 &3596839478278455272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,5 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671bb49145d191f48bd5bbb5abcbc0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 3596839478278455269}
-  currentColor: {r: 1, g: 1, b: 1, a: 1}
+  ballColor: 
+  gameManager: {fileID: 0}

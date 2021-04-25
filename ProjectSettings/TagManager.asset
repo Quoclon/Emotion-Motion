@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - Border
   - GameManager
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,11 @@ TagManager:
   - 
   - InnerCircle
   - Ball
+  - 
+  - 
+  - 
   - Goal
+  - Spawner
   - Border
   - 
   - 
@@ -38,11 +43,22 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
+  - name: Border
+    uniqueID: 71726795
+    locked: 0
+  - name: Goal
+    uniqueID: 1070851147
+    locked: 0
+  - name: Spawner
+    uniqueID: 1063971663
+    locked: 0
+  - name: Ball
+    uniqueID: 3586178899
+    locked: 0
+  - name: Player
+    uniqueID: 934276339
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

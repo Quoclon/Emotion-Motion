@@ -4,32 +4,33 @@ using UnityEngine;
 
 
 public enum SpawnType
-{ Burst, Timer};
+{ Timer, Burst, Single};
 
 public class BallSpawner : MonoBehaviour
 {
     public GameObject[] balls;
     private GameObject ball;
 
-    private int ballType;
-
-    [SerializeField]
+    [Header("SpawnType")]
     public SpawnType spawnType;
-    //public SpawnType spawnType = SpawnType.Timer;
 
-    public int startingBalls = 8;
-
+    [Header("Spawn Variables")]
+    public Transform spawnPoint;
+    public int ballsThisLevel = 4;
     public float spawnRate = 2.5f;
     private float nextSpawn = 0f;
     private float timer = 0f;
 
+    [Header("Ball Variables")]
+    public float ballMagnitudeMax = 6f;
+    public float ballForce = 25f;
+    private int ballType;
+    
     // Start is called before the first frame update
     void Start()
     {
-        if(spawnType == SpawnType.Burst)
-             BurstSpawn();
-
-        //Debug.Log(balls.Length);
+        if (spawnType == SpawnType.Single)
+            SpawnBall();
     }
 
     // Update is called once per frame
@@ -37,14 +38,12 @@ public class BallSpawner : MonoBehaviour
     {
         if(spawnType == SpawnType.Timer)
             TimedSpawn();
-
     }
 
-
+    //TODO: Improve Timer
     void TimedSpawn()
     {
         timer = Time.time;
-
         if (Time.time > nextSpawn)
         {
             SpawnBall();
@@ -52,27 +51,35 @@ public class BallSpawner : MonoBehaviour
         }
     }
 
-
-    void BurstSpawn()
-    {
-        for (int i = 0; i < startingBalls; i++)
-        {
-            SpawnBall();
-        }
-    }
-
-
+    //TODO: Tidy up this function
     public void SpawnBall()
     {
+        //Select a Random Ball to Spawn
         int rand = Random.Range(0, balls.Length);
-        //Debug.Log(rand + " " + balls[rand]);
         ball = balls[rand];
 
+        //Determine Spawn Position
         Vector3 spawnPosition = transform.position;
         if (spawnType == SpawnType.Burst)
             spawnPosition = new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0);
 
-        Instantiate(ball, spawnPosition, Quaternion.identity);
-    }
+        if (spawnType != SpawnType.Burst)
+            spawnPosition = new Vector3(spawnPoint.position.x, spawnPoint.position.y, 0);
 
+        //Determine into Centre of Circle
+        float lookAngle;
+        Vector2 lookDirection;
+        Quaternion fireAngle;
+
+        lookDirection = new Vector3(0,0,0) - spawnPosition;
+        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        fireAngle = spawnPoint.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
+
+        //Debug.Log(Quaternion.Euler(0f, 0f, lookAngle - 90f));
+
+        //Fire Toward Centre of Circle
+        GameObject newBall = Instantiate(ball, spawnPosition, fireAngle);
+        newBall.GetComponent<BallMovement>().AddForce(ballForce);
+        newBall.GetComponent<BallMovement>().ClampVelocity(ballMagnitudeMax);
+    }
 }
