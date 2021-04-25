@@ -8,8 +8,8 @@ public enum SpawnType
 
 public class BallSpawner : MonoBehaviour
 {
-    public GameObject[] balls;
-    private GameObject ball;
+    public GameObject[] spawnableBalls;
+    private GameObject ballToSpawn;
 
     [Header("SpawnType")]
     public SpawnType spawnType;
@@ -25,18 +25,29 @@ public class BallSpawner : MonoBehaviour
     public float ballMagnitudeMax = 6f;
     public float ballForce = 25f;
     private int ballType;
-    
+
+    [SerializeField]
+    private List<GameObject> nextBalls = new List<GameObject>();
+
+    [SerializeField]
+    private List<GameObject> ballHopper = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
         if (spawnType == SpawnType.Single)
             SpawnBall();
+
+        if (spawnType == SpawnType.Timer)
+            CreateBallHopper();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(spawnType == SpawnType.Timer)
+        CheckNextBalls();
+
+        if (spawnType == SpawnType.Timer)
             TimedSpawn();
     }
 
@@ -54,9 +65,12 @@ public class BallSpawner : MonoBehaviour
     //TODO: Tidy up this function
     public void SpawnBall()
     {
-        //Select a Random Ball to Spawn
-        int rand = Random.Range(0, balls.Length);
-        ball = balls[rand];
+
+        if (ballHopper.Count <= 0)
+            return;
+
+        ballToSpawn = ballHopper[0];
+        ballHopper.Remove(ballHopper[0]);
 
         //Determine Spawn Position
         Vector3 spawnPosition = transform.position;
@@ -78,8 +92,40 @@ public class BallSpawner : MonoBehaviour
         //Debug.Log(Quaternion.Euler(0f, 0f, lookAngle - 90f));
 
         //Fire Toward Centre of Circle
-        GameObject newBall = Instantiate(ball, spawnPosition, fireAngle);
+        GameObject newBall = Instantiate(ballToSpawn, spawnPosition, fireAngle);
         newBall.GetComponent<BallMovement>().AddForce(ballForce);
         newBall.GetComponent<BallMovement>().ClampVelocity(ballMagnitudeMax);
+
+
+    }
+
+    void CreateBallHopper()
+    {
+        for (int i = 0; i < ballsThisLevel; i++)
+        {
+            AddBall();
+        }
+    }
+
+    void AddBall()
+    {
+        //Select a Random Ball to Spawn
+        int rand = Random.Range(0, spawnableBalls.Length);
+        ballToSpawn = spawnableBalls[rand];
+        ballHopper.Add(ballToSpawn);
+    }
+
+    void CheckNextBalls()
+    {
+        //Debug.Log(nextBalls.Count);
+        for (int i = nextBalls.Count-1; i >= 0; i--)
+        {
+            if(ballHopper.Count > i)
+            {
+                nextBalls[i].GetComponent<SpriteRenderer>().color = ballHopper[i].GetComponent<SpriteRenderer>().color;
+                continue;
+            }
+            nextBalls[i].GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 }
