@@ -33,10 +33,10 @@ public class BlastController : MonoBehaviour
 
     private void PushObjects()
     {
-        Debug.Log(AffectedObjects.Count);
+        //Debug.Log(AffectedObjects.Count);
         for (int i = 0; i < AffectedObjects.Count; i++)
         {
-            Debug.Log("Pushed: " + i);
+            //Debug.Log("Pushed: " + i);
             ForceVector = transform.up;
             AffectedObjects[i].GetComponent<Rigidbody2D>().AddForce(ForceVector * forceMultiplier);
         }

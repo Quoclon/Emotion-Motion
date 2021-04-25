@@ -31,8 +31,8 @@ public class GoalController : MonoBehaviour
         {
             if (collision.GetComponent<BallStats>().ballColor == this.color)
             {
-                Debug.Log("Hit");
-                Debug.Log(collision.gameObject);
+                //Debug.Log("Hit");
+                //Debug.Log(collision.gameObject);
                 gameManager.RemoveBall(collision.gameObject);
                 Destroy(collision.gameObject);
             }

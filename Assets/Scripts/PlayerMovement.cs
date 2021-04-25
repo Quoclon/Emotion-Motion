@@ -6,20 +6,23 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D m_Rigidbody;
-    private float innerCircleRadius = 3.6f;
+    [SerializeField]
+    private float innerCircleRadius;
     public float speed = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
-        //innerCircleRadius = GameObject.FindGameObjectsWithTag("InnerCircle")[0].transform.localScale.x;
+        innerCircleRadius = GameObject.FindGameObjectsWithTag("InnerCircle")[0].transform.localScale.x;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Move();
+        //innerCircleRadius = GameObject.FindGameObjectsWithTag("InnerCircle")[0].transform.localScale.x;
+
     }
 
     private void FixedUpdate()
