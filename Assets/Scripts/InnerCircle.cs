@@ -19,10 +19,12 @@ public class InnerCircle : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Debug.Log("Exited");
+        /*
         if(collision.tag == "Player")
         {
             Debug.Log("Player Exit");
         }
+        */
     }
 
     void OnTriggerEnter2D(Collider2D collision)

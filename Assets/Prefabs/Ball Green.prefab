@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2995082285891361205}
   - component: {fileID: 2995082285891361204}
   - component: {fileID: 2995082285891361207}
-  - component: {fileID: 2995082285891361206}
   - component: {fileID: 2995082285891361208}
   - component: {fileID: 2995082285891361209}
+  - component: {fileID: -3126967556334194742}
   m_Layer: 0
   m_Name: Ball Green
   m_TagString: Ball
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2995082285891361203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -708788397
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f6ef4c70ebe1fe3428e8984bb2686807, type: 3}
   m_Color: {r: 0, g: 1, b: 0.04484415, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,22 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &2995082285891361206
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2995082285891361203}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
 --- !u!114 &2995082285891361208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7245abb415242104f934d8359a57592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxVelocity: 4
 --- !u!114 &2995082285891361209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +134,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballColor: Green
   gameManager: {fileID: 0}
+--- !u!58 &-3126967556334194742
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995082285891361203}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

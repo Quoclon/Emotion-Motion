@@ -12,7 +12,7 @@ public class GoalController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.FindGameObjectsWithTag("GameManager")[0].GetComponent<GameManager>();
+        //gameManager = GameObject.FindGameObjectsWithTag("GameManager")[0].GetComponent<GameManager>();
     }
 
     // Update is called once per frame

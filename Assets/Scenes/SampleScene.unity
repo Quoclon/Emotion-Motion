@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfacacff774a3f478edb213aacc9d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  innerCircleRadius: 3.6
   speed: 5
 --- !u!4 &22377499
 Transform:
@@ -1991,7 +1990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfacacff774a3f478edb213aacc9d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  innerCircleRadius: 3.6
   speed: 5
 --- !u!212 &750858581
 SpriteRenderer:
@@ -2783,7 +2781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfacacff774a3f478edb213aacc9d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  innerCircleRadius: 3.4
   speed: 4
 --- !u!4 &1102662444
 Transform:
