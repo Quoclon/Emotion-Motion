@@ -5,9 +5,13 @@ using UnityEngine;
 public class GoalController : MonoBehaviour
 {
     public string color;
+    public string audioString = "GoalScored1";
+
+    BallStats ballStats;
 
     //TODO: Fix  this to use Singleton
     public GameManager gameManager;
+    public AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +33,11 @@ public class GoalController : MonoBehaviour
 
         if (collision.tag == "Ball")
         {
-            if (collision.GetComponent<BallStats>().ballColor == this.color)
+            ballStats = collision.GetComponent<BallStats>();
+
+            if (ballStats.ballColor == this.color)
             {
-                //Debug.Log("Hit");
-                //Debug.Log(collision.gameObject);
+                audioManager.playAudio(ballStats.ballColor.ToString());
                 gameManager.RemoveActiveBall(collision.gameObject);
                 Destroy(collision.gameObject);
             }

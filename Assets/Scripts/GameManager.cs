@@ -6,6 +6,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioManager audioManager;
+
     [SerializeField]
     private List<GameObject> ActiveBallList = new List<GameObject>();
     public GameObject player;
@@ -163,6 +165,7 @@ public class GameManager : MonoBehaviour
         if (totalBallsThisLevel - totalBallsScored == 0)
         {
             textLevelOver.text = "You Win!";
+            audioManager.playAudio("Win");
             ToggleSceneOver();
         }
     }
@@ -174,6 +177,7 @@ public class GameManager : MonoBehaviour
         if (timeCounter >= timeLimit)
         {
             timeCounter = timeLimit;
+            audioManager.playAudio("Lose");
             textLevelOver.text = "You Lose!";
             ToggleSceneOver();
         }
