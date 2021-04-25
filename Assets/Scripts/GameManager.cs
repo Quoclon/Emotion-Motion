@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
 
     public void ReloadLevel()
     {
+        levelActive = true;
+        ResetActiveBallCount();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -184,7 +186,7 @@ public class GameManager : MonoBehaviour
         DisablePlayer();
         DisableSpawner();
         DisableBalls();
-        PauseGame();
+        //PauseGame();
         //ResetActiveBallCount();
     }
 
@@ -240,6 +242,6 @@ public class GameManager : MonoBehaviour
         totalBallsScored = 0;
         totalBallsSpawned = 0;
 
-        //levelActive = false;
+        levelActive = true;
     }
 }

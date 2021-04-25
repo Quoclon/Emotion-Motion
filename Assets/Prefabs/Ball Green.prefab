@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: -708788397
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f6ef4c70ebe1fe3428e8984bb2686807, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6bf2ea5ebba397c4d92797b25c254c67, type: 3}
   m_Color: {r: 0, g: 1, b: 0.04484415, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballColor: Green
+  ballNumber: 0
   gameManager: {fileID: 0}
 --- !u!58 &-3126967556334194742
 CircleCollider2D:

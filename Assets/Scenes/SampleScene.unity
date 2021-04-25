@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMultiplier: 3000
-  flashOpacity: 0.2
+  flashOpacity: 0.25
   flashTime: 0.075
   AffectedObjects: []
   ForceVector: {x: 1, y: 1, z: 0}
@@ -499,7 +499,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 374c1cb358d83b7418e1e5c92b89eaee, type: 3}
-  m_Color: {r: 0.735849, g: 0.50259876, b: 0.71888524, a: 0.039215688}
+  m_Color: {r: 0.735849, g: 0.50259876, b: 0.71888524, a: 0.078431375}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -769,7 +769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162107157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.16, y: 3.16, z: 0}
+  m_LocalPosition: {x: -3.132, y: 3.132, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 786270578}
@@ -1963,7 +1963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.57, z: -10}
+  m_LocalPosition: {x: 0, y: 0.33, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2064,6 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708b8afde22174847af875a7731e3d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActiveBallList: []
   player: {fileID: 1102662442}
   spawner: {fileID: 786270577}
   levelOverGO: {fileID: 155700858}
@@ -2073,8 +2074,8 @@ MonoBehaviour:
   textBlueCount: {fileID: 249695640}
   textRedCount: {fileID: 1549694049}
   textYellowCount: {fileID: 923117492}
-  timeLimit: 900
-  timeIntervals: 10
+  timeLimit: 60
+  timeIntervals: 1
   levelActive: 0
   won: 1
   lost: 1
@@ -2474,7 +2475,7 @@ MonoBehaviour:
   - {fileID: 8656573009790629267, guid: aa2859ccd1a93164c89a7dce6e455789, type: 3}
   spawnType: 0
   spawnPoint: {fileID: 248060414}
-  ballsThisLevel: 6
+  ballsThisLevel: 8
   spawnRate: 2.5
   ballMagnitudeMax: 6
   ballForce: 40
@@ -2539,7 +2540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922114020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.02, y: 3.02, z: 0}
+  m_LocalPosition: {x: -2.992, y: 2.992, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 786270578}
@@ -3114,7 +3115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfacacff774a3f478edb213aacc9d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 4.5
 --- !u!4 &1102662444
 Transform:
   m_ObjectHideFlags: 0
@@ -3934,7 +3935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477206794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3, y: 3.3, z: 0}
+  m_LocalPosition: {x: -3.272, y: 3.272, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 786270578}

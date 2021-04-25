@@ -18,7 +18,7 @@ public class BallSpawner : MonoBehaviour
 
     [Header("Spawn Variables")]
     public Transform spawnPoint;
-    public int ballsThisLevel = 4;
+    public int ballsThisLevel = 6;
     public float spawnRate = 2.5f;
     private float nextSpawn = 0f;
     private float timer = 0f;
