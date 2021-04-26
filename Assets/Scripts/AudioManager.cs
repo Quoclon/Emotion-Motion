@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public float WaitSeconds;
 
     //AudioSource audioSource;
     public AudioSource[] audioSources;
@@ -12,7 +13,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audioSources = Resources.FindObjectsOfTypeAll<AudioSource>();
-        playAudio("SoundTrack1");
+        StartCoroutine(LoadAudio());    
     }
 
     // Update is called once per frame
@@ -21,11 +22,17 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    IEnumerator LoadAudio()
+    {
+        yield return new WaitForSeconds(WaitSeconds);
+        playAudio("SoundTrack1");
+    }
+
     public void playAudio(string audioSourceName)
     {
         foreach (AudioSource audioSource in audioSources)
         {
-            Debug.Log("AudioSource in Array of Audiosources: " + audioSource);
+            //Debug.Log("AudioSource in Array of Audiosources: " + audioSource);
 
             if (audioSource.name == audioSourceName)
             {

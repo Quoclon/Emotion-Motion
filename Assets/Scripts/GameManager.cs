@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     //UI Interactions
     public TextMeshProUGUI textLevelOver;
     public TextMeshProUGUI textTimeCounter;
+    public TextMeshProUGUI textTotalTimeTaken;
 
     public TextMeshProUGUI textGreenCount;
     public TextMeshProUGUI textBlueCount;
@@ -75,6 +76,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void ReloadGame()
+    {
+        levelActive = true;
+        ResetActiveBallCount();
+        SceneManager.LoadScene(0);
+    }
     void UpdateTime()
     {
         timeCounter += Time.deltaTime * timeIntervals;
@@ -186,6 +193,7 @@ public class GameManager : MonoBehaviour
     void ToggleSceneOver()
     {
         levelActive = false;
+        textTotalTimeTaken.text = timeCounter.ToString();
         ToggleLevelOverCanvas();
         DisablePlayer();
         DisableSpawner();
@@ -248,4 +256,5 @@ public class GameManager : MonoBehaviour
 
         levelActive = true;
     }
+
 }
