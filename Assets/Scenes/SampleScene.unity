@@ -2778,7 +2778,7 @@ MonoBehaviour:
   - {fileID: 8656573009790629267, guid: aa2859ccd1a93164c89a7dce6e455789, type: 3}
   spawnType: 0
   spawnPoint: {fileID: 248060414}
-  ballsThisLevel: 8
+  ballsThisLevel: 10
   spawnRate: 2.5
   ballMagnitudeMax: 6
   ballForce: 40
@@ -3763,7 +3763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfacacff774a3f478edb213aacc9d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  speed: 4
 --- !u!4 &1102662444
 Transform:
   m_ObjectHideFlags: 0

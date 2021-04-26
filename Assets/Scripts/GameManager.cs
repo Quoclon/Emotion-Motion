@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
     void ToggleSceneOver()
     {
         levelActive = false;
-        textTotalTimeTaken.text = timeCounter.ToString();
+        textTotalTimeTaken.text = timeCounter.ToString("F1");
         ToggleLevelOverCanvas();
         DisablePlayer();
         DisableSpawner();
